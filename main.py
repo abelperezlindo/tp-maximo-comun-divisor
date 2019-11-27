@@ -15,7 +15,7 @@ from texttable import Texttable
 def testDeFunciones():
     #TEST DE FUNCIONES
     result = 1
-    for x in range(2):
+    for x in range(20):
         a = np.random.randint(100, 10000)
         b = np.random.randint(100, 10000)
         mcdc = funciones.mcd(a, b)
@@ -33,10 +33,13 @@ def testDeFunciones():
 
 def getNumerosAleatorios():
     lista = []
-    for x in range(5):
+    for x in range(100):
         thisdict = {
-        "a": np.random.randint(1000000,10000000000), # a = Número aleatorio entre un millon y diez mil millones
-        "b": np.random.randint(1000000,10000000000), # b = Número aleatorio entre un millon y diez mil millones
+        "a": np.random.randint(10000,1000000),
+        "b": np.random.randint(10000,1000000), 
+            # Para una prueba mas ex
+        #"a": np.random.randint(1000000,10000000000), # a = Número aleatorio entre un millon y diez mil millones
+        #"b": np.random.randint(1000000,10000000000), # b = Número aleatorio entre un millon y diez mil millones
         }
         lista.insert(x, thisdict)
     return lista
@@ -50,7 +53,7 @@ def calcularTiempos():
     t.set_cols_width([10, 10, 10, 40, 40, 40])
     t.header(["Variable a", "variable b", "mcd","tiempo euclides (ms)","tiempo factores p. (ms)","tiempo restas (ms)"])
     
-    for x in range(5):
+    for x in range(100):
         a = listaAleatorios[x].get("a")
         b = listaAleatorios[x].get("b")
         """ millis = (time() - start_time) * 1000 """
